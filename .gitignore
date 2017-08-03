@@ -6,7 +6,9 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
+/static/js/vendor/vd/h5Validate/
 /static/admin/
 /muni/migrations/
 code-structure.txt
 *.min.js
+
