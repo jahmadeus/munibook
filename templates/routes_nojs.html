@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Select Route{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="small-centered columns content">
+    <ul>
+      {% for routeTag, routeTitle  in route_list %}
+      <li><a href="http://nuess.net/stops/{{ routeTag }}/">{{ routeTitle }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

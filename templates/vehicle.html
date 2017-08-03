@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Vehicle #{{ vehicleId }}{% endblock %}
+
+{% block content %}
+<div class="row" id="vehicle-info">
+  <h2>Vehicle # {{ vehicleId }}</h2>
+  <b>Last Seen on Route:</b> <p>{{ lastRoute }}</p>
+</div>
+<div class="row text-center" id="comments-area">
+  <div class="medium-centered columns text-center">
+    <hr>
+    <ul id="vehicle-comments" hidden>
+      <h4>Vehicle Comments</h4>
+    </ul>
+
+  </div>
+</div>
+<div class="row" id="comment-form-area">
+  <div class="medium-centered columns text-center">
+    <form id="vehicle-comment-form">
+      {% csrf_token %}
+      <div class="row">
+        <div class="small-centered columns text-center">
+          <textarea name="text" id="vehicle-comment-text-area" minlength="1"
+                    maxlength="140" placeholder="Enter comment..."
+                    required></textarea>
+          <p class="help-text" id="commentHelpText">Maximum Length: 140 Characters</p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="small-centered columns text-center">
+          <input type="submit" class="button" value="Post Comment">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="small-centered columns text-center">
+    <a href="//nuess.net/"><p>[Return to Predictions]</p></a>
+  </div>
+</div>
+<select id="vehicleId" hidden>
+  <option value="{{vehicleId}}" selected>{{vehicleId}}</option>
+</select>
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript"  src="{% static 'js/vehicle_ajax.js' %}"></script>
+{% endblock %}

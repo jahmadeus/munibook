@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Results{% endblock %}
+
+{% block content %}
+<div id="content-area">
+  <div class="row content">
+    <h1><a href="http://nuess.net/getStops/{{ routeTag }}/"><div class="route-symbol-container">{{ routeTag }}</div> {{routeTitle}}</a></h1>
+    <h3>{{stopTitle}}</h3>
+    {% for dirTitle, predictions in predictionData %}
+      {% if predictionData.1 %}
+    <div class="medium-6 columns prediction-list">
+      {% else %}
+    <div class="medium-centered columns prediction-list">
+      {% endif %}
+      <h4>{{dirTitle}}</h4>
+      <ul>
+      {% for epochTime, seconds, minutes, isDeparture, dirTag, vehicleId, affectedByLayover in predictions %}
+      <li>Bus {{vehicleId}} arrives in {{minutes}} minutes.</li>
+      {% endfor %}
+    </ul>
+    </div>
+      {% empty %}
+      <h5>Sorry! There are no available predictions for this stop.</h5>
+    </div>
+    {% endfor %}
+  </div>
+  <hr>
+  <div class="row content">
+    <div class="small-centered columns messages">
+      <h2>System Alerts</h2>
+      {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

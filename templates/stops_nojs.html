@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Select Stop{% endblock %}
+
+{% block content %}
+<div class="row content">
+  <h1>{{ routeTag }} {{ routeName }}</h1>
+  <div class="medium-6 columns stop-list">
+    <h3>{{ inboundTitle }}</h3>
+    <ul>
+      {% for stopTag, title, lat, lon, stopId in inboundStops %}
+      <li><a href="//nuess.net/getPredictions/{{ routeTag }}/{{ stopTag }}/">{{ title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="medium-6 columns stop-list">
+    <h3>{{ outboundTitle }}</h3>
+    <ul>
+      {% for stopTag, title, lat, lon, stopId in outboundStops %}
+      <li><a href="//nuess.net/getPredictions/{{ routeTag }}/{{ stopTag }}/">{{ title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,171 @@
+a {
+  color: black;
+}
+
+
+body {
+  background-color: #074E68;
+}
+
+#site-content {
+  background-color: white;
+}
+.mydiv {
+  margin: 20px;
+  background-color: red;
+}
+
+.topbar {
+  background-color: black;
+  color: white;
+}
+
+#site-footer {
+  background: #074E68;
+}
+
+.footer {
+  text-align: center;
+  color: #ffe;
+  padding-top: 1rem;
+}
+
+.footer a {
+  color: #ffe;
+}
+
+.header {
+  text-align: center;
+  background: #074E68;
+  background-size: cover;
+  position: relative;
+  overflow: visible;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.header .headline {
+  color: #ffe;
+}
+.header .headline a {
+  color: #ffe;
+}
+
+.header-subnav {
+  float: none;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 0;
+  width: 100%;
+}
+.header-subnav li {
+  float: none;
+  display: inline-block;
+}
+.header-subnav li a {
+  padding: 0.9rem 1rem;
+  font-size: 0.75rem;
+  color: #ffe;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.35s ease-in-out;
+}
+.header-subnav li a.is-active {
+  background: rgba(250, 250, 250, 0.15);
+}
+.header-subnav li a:hover {
+  background: rgba(250, 250, 250, 0.15);
+  transition: all 0.35s ease-in-out;
+}
+
+.content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.stop-list {
+  padding-bottom: 1rem;
+}
+
+.messages {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.route-symbol-container {
+  display: inline-block;
+}
+
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+.selection-bar {
+  text-align: center;
+  background-color: #627F8A;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#results-area {
+  text-align: center;
+}
+
+
+
+
+#predictions-box {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#messages-box {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#comments-box {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+
+
+#vehicle-info {
+  text-align: center;
+}
+
+#route-comments-box {
+  margin-top: .5rem;
+}
+
+#comments-area textarea {
+  min-height: 10rem;
+}
+
+#vehicle-comment-text-area {
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#comments-area hr {
+  margin: 1rem auto;
+  width: 50%;
+}

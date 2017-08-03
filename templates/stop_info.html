@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="row content">
+    <h1>{{ routeTag }} {{ routeName }}</h1>
+    <div class="medium-6 columns stop-list" data-equalizer>
+      <h3>{{ inboundTitle }}</h3>
+      <ul>
+      {% for stopTag, title, lat, lon, stopId in inboundStops %}
+        <li><a href="http://nuess.net/getPredictions/{{ routeTag }}/{{ stopTag }}/">{{ title }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+
+    <div class="medium-6 columns stop-list" data-equalizer>
+      <h3>{{ outboundTitle }}</h3>
+      <ul>
+      {% for stopTag, title, lat, lon, stopId in outboundStops %}
+        <li><a href="http://nuess.net/getPredictions/{{ routeTag }}/{{ stopTag }}/">{{ title }}</a></li>
+      {% endfor %}
+    </ul>
+    </div>
+    {% for tag, title in stop_list %}
+      <li><a href="http://nuess.net/getPredictions/{{ route }}/{{ tag }}/">{{ title }}</a></li>
+    {% endfor %}
+</div>
+{% endblock %}

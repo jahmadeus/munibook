@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Real-Time MUNI Arrivals{% endblock %}
+
+{% block content %}
+
+<div class="selection-bar">
+  <div class="row">
+    <div class="medium-4 columns">
+      <form>{% csrf_token %}
+        <label>Select Route
+          <select name="route" id="route" class="stop-selector" autocomplete="off">
+            <option value="" disabled selected>Select Route</option>
+            {% for routeTag, routeTitle  in route_list %}
+            <option value="{{routeTag}}">{{routeTitle}}</option>
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+      <div class="medium-4 columns">
+        <label id="direction-list" hidden>Select Direction
+          <select name="direction" id="direction" autocomplete="off">
+            <option value="" disabled selected>Select Route</option>
+          </select>
+        </label>
+      </div>
+      <div class="medium-4 columns">
+        <label id="stop-list" hidden>Select Stop
+          <select name="stop" id="stop" autocomplete="off">
+          </select>
+        </label>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="results-area" hidden>
+  <div class="row" >
+    <div class="medium-6  medium-push-6 columns">
+      <div id="predictions-box">
+        <h2>Predictions</h2>
+      </div>
+      <hr class="show-for-small-only">
+    </div>
+    <div class="medium-6 medium-pull-6 columns">
+      <div id="messages-box">
+        <h2>MUNI Notifications</h2>
+        <ul id="messages"></ul>
+      </div>
+    </div>
+  </div>
+  <div id="comments-area">
+    <div class="row">
+      <hr>
+      <div class="medium-6 columns">
+        <div class="row">
+          <div class="medium-centered columns">
+            <h3>Comments</h3>
+            <div id="route-comments-box">
+              <ul id="route-comments" hidden>
+                <h4>Route Comments</h4>
+              </ul>
+            </div>
+          </div>
+          <hr class="show-for-small-only">
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <h3>Leave A Comment</h3>
+        <form id="route-comment-form">
+          {% csrf_token %}
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="comment-text-area" class="text-right">Comment:</label>
+            </div>
+            <div class="small-9 columns">
+              <textarea name="text" id="comment-text-area" maxlength="140"
+                        minlength="1" placeholder="Add comment here..."
+                        autocomplete="off" required></textarea>
+              <p class="help-text" id="commentHelpText">Maximum Length: 140 Characters</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-9 small-offset-3 columns">
+              <input type="submit" class="button" value="Submit" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript" src="{% static 'js/index_ajax.js' %}"></script>
+{% endblock %}
